@@ -1,0 +1,284 @@
+<!-- public/index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Application</title>
+  </head>
+  <body>
+    <h1>Location</h1>
+    <label for="from">From:</label>
+    <input type="text" id="from" placeholder="Enter From" />
+    <label for="to">To:</label>
+    <input type="text" id="to" placeholder="Enter To" />
+    <button id="sendBtn">Send</button>
+    <ul id="messages"></ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      const sendBtn = document.getElementById("sendBtn");
+      const fromInput = document.getElementById("from");
+      const toInput = document.getElementById("to");
+      const messagesList = document.getElementById("messages");
+
+      // Function to add a message to the chat
+      function addMessage(message) {
+        const li = document.createElement("li");
+        li.textContent = message;
+        messagesList.appendChild(li);
+      }
+
+      socket.on("user-message", (message) => {
+        // Display received messages in the chat
+        addMessage(message);
+      });
+
+      sendBtn.addEventListener("click", () => {
+        const from = fromInput.value;
+        const to = toInput.value;
+        if (from.trim() !== "" && to.trim() !== "") {
+          // Send the message to the server
+          socket.emit("user-message", `From: ${from} - To: ${to}`);
+          fromInput.value = ""; // Clear the input field
+          toInput.value = ""; // Clear the input field
+        }
+      });
+
+      fromInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          sendBtn.click();
+        }
+      });
+
+      toInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          sendBtn.click();
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Application</title>
+  </head>
+  <body>
+    <h1>Location</h1>
+    <label for="from">From:</label>
+    <input type="text" id="from" placeholder="Enter From" />
+    <label for="to">To:</label>
+    <input type="text" id="to" placeholder="Enter To" />
+    <button id="sendBtn">Send</button>
+    <ul id="messages"></ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      const sendBtn = document.getElementById("sendBtn");
+      const fromInput = document.getElementById("from");
+      const toInput = document.getElementById("to");
+      const messagesList = document.getElementById("messages");
+
+      // Function to add a message to the chat
+      function addMessage(message) {
+        const li = document.createElement("li");
+        li.textContent = message;
+        messagesList.appendChild(li);
+      }
+
+      socket.on("user-message", (message) => {
+        // Display received messages in the chat
+        addMessage(message);
+      });
+
+      sendBtn.addEventListener("click", () => {
+        const from = fromInput.value;
+        const to = toInput.value;
+        if (from.trim() !== "" && to.trim() !== "") {
+          // Send the message to the server
+          socket.emit("user-message", `From: ${from} - To: ${to}`);
+          fromInput.value = ""; // Clear the input field
+          toInput.value = ""; // Clear the input field
+        }
+      });
+
+      fromInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          sendBtn.click();
+        }
+      });
+
+      toInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          sendBtn.click();
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complaint Resolution</title>
+  </head>
+  <body>
+    <h1>Complaint Resolution</h1>
+    <label for="complaint">Complaint:</label>
+    <input type="text" id="complaint" placeholder="Enter Complaint" />
+    <button id="submitBtn">Submit</button>
+    <ul id="complaints"></ul>
+
+    <script  src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      const submitBtn = document.getElementById("submitBtn");
+      const complaintInput = document.getElementById("complaint");
+      const complaintsList = document.getElementById("complaints");
+
+      // Function to add a complaint to the list
+      function addComplaint(complaint) {
+        const li = document.createElement("li");
+        li.textContent = complaint;
+        complaintsList.appendChild(li);
+      }
+
+      socket.on("new-complaint", (complaint) => {
+        // Display received complaints in the list
+        addComplaint(complaint);
+      });
+
+      submitBtn.addEventListener("click", () => {
+        const complaint = complaintInput.value;
+        if (complaint.trim() !== "") {
+          // Send the complaint to the server
+          socket.emit("new-complaint", complaint);
+          complaintInput.value = ""; // Clear the input field
+        }
+      });
+
+      complaintInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          submitBtn.click();
+        }
+      });
+    </script>
+  </body>
+</html>
+    -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ... (meta and title) ... -->
+  <!-- </head> -->
+  <!-- <body> -->
+    <!-- <h1>Complaint Resolution</h1> --> -->
+    <!-- <label for="complaint">Complaint:</label>
+    <input type="text" id="complaint" placeholder="Enter Complaint" />
+    <button id="submitBtn">Submit</button>
+    <ul id="complaints"></ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      const submitBtn = document.getElementById("submitBtn");
+      const complaintInput = document.getElementById("complaint");
+      const complaintsList = document.getElementById("complaints"); -->
+<!-- 
+      // // Function to add a complaint to the list
+      // function addComplaint(complaint) {
+      //   const li = document.createElement("li");
+      //   li.textContent = complaint;
+      //   complaintsList.appendChild(li);
+      // }
+
+      // socket.on("new-complaint", (complaint) => {
+      //   // Display received complaints in the list
+      //   addComplaint(complaint);
+      // });
+
+      // submitBtn.addEventListener("click", () => {
+      //   const complaint = complaintInput.value;
+      //   if (complaint.trim() !== "") {
+      //     // Send the complaint to the server
+      //     socket.emit("new-complaint", complaint);
+      //     complaintInput.value = ""; // Clear the input field
+      //   }
+      // });
+
+//       complaintInput.addEventListener("keydown", (event) => {
+//         if (event.key === "Enter") {
+//           submitBtn.click();
+//         }
+//       }); -->
+<!-- //     </script>
+//   </body>
+// </html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Application</title>
+  </head>
+  <body>
+    <h1>Chat Application</h1>
+    <ul id="chatMessages"></ul>
+    <label for="message">Message:</label>
+    <input type="text" id="message" placeholder="Enter your message" />
+    <button id="sendBtn">Send</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io("/chat"); // Connect to the "chat" namespace
+
+      const sendBtn = document.getElementById("sendBtn");
+      const messageInput = document.getElementById("message");
+      const chatMessages = document.getElementById("chatMessages");
+
+      // Function to add a chat message to the list
+      function addMessage(message) {
+        const li = document.createElement("li");
+        li.textContent = message;
+        chatMessages.appendChild(li);
+      }
+
+      socket.on("chat-message", (message) => {
+        // Display received chat messages in the list
+        addMessage(message);
+      });
+
+      sendBtn.addEventListener("click", () => {
+        const message = messageInput.value;
+        if (message.trim() !== "") {
+          // Send the message to the server
+          socket.emit("chat-message", message);
+          messageInput.value = ""; // Clear the input field
+        }
+      });
+
+      messageInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          sendBtn.click();
+        }
+      });
+    </script>
+  </body>
+</html>
+
